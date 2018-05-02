@@ -1,0 +1,24 @@
+service: status-serverless
+provider:
+  name: aws
+  runtime: nodejs6.10
+  role: ${env:LAMBDA_ROLE}
+  stage: ${env:STAGE}
+  region: us-east-2
+  environment:
+    STATUSPAGE_API_KEY: ${ssm:STATUSPAGE_API_KEY}
+
+package:
+ include:
+   - handler.js
+   - common/**
+   - config/**
+
+functions:
+  persistent:
+    memorySize: 1024
+    handler: handler.status
+    events:
+     - http:
+         path: status
+         method: get

@@ -1,0 +1,21 @@
+{
+  "name": "status-serverless",
+  "version": "1.0.0",
+  "description": "Serverless Statuspage.io queries",
+  "main": "index.js",
+  "author": "Elliott Grieco <elliott.grieco@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "devDependencies": {
+    "jasmine": "^3.1.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "lambda-tester": "^3.4.0",
+    "nock": "^9.2.5",
+    "serverless": "^1.27.0"
+  },
+  "dependencies": {
+    "status-jockey": "https://github.com/NYULibraries/statusjockey"
+  }
+}
