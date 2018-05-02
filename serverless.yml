@@ -11,8 +11,7 @@ provider:
 package:
  include:
    - handler.js
-   - common/**
-   - config/**
+   - sj-config.js
 
 functions:
   persistent:
