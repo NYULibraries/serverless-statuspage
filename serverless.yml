@@ -14,7 +14,7 @@ package:
    - sj-config.js
 
 functions:
-  persistent:
+  status:
     memorySize: 1024
     handler: handler.status
     events:

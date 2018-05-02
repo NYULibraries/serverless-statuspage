@@ -1,5 +1,5 @@
 const LambdaTester = require('lambda-tester');
-const { statuspage } = require('../handler.js');
+const { status } = require('../handler.js');
 const nock = require('nock');
 
 describe('all incidents', () => {
@@ -34,7 +34,7 @@ describe('all incidents', () => {
   });
 
   it('should filter data', (done) => {
-    LambdaTester(statuspage)
+    LambdaTester(status)
       .event({
         queryStringParameters: {
           page_id: "kyyfz4489y7m",
