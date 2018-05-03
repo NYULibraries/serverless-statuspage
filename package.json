@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "deploy": "serverless deploy"
   },
   "devDependencies": {
     "jasmine": "^3.1.0",
