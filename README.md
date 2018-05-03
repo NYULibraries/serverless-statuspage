@@ -31,6 +31,14 @@ docker-compose run test
 
 ## Deploy
 
+Required environment variables:
+* `LAMBDA_ROLE` (e.g. arn:aws:iam::123456789:role/AWSLambdaBasicExecutionRole)
+* `STAGE` (dev/prod)
+
+If not using serverless deployment profiles:
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+
 locally:
 
 ```bash
