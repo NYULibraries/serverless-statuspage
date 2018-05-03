@@ -8,6 +8,14 @@ provider:
   environment:
     STATUSPAGE_API_KEY: ${ssm:STATUSPAGE_API_KEY}
 
+# Enables api caching for dev and prod only
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  enableCaching:
+    prod: true
+    dev: true
+    default: false
+
 package:
   include:
     - handler.js
@@ -21,3 +29,27 @@ functions:
       - http:
           path: status
           method: get
+
+# enable caching based on stage name
+ApiGatewayStage:
+  CacheClusterEnabled: ${self:custom.enableCaching.${self:custom.stage}, self:custom.enableCaching.default}
+
+# Configures api caching for query strings
+resources:
+  Resources:
+    ApiGatewayMethodStatusGet:
+      Properties:
+        RequestParameters:
+          method.request.querystring.type: true,
+          method.request.querystring.limit: true,
+          method.request.querystring.page_id: true,
+        Integration:
+          RequestParameters:
+            integration.request.querystring.type: method.request.querystring.type
+            integration.request.querystring.limit: method.request.querystring.limit
+            integration.request.querystring.page_id: method.request.querystring.page_id
+          CacheNamespace: "xbf153"
+          CacheKeyParameters:
+            - method.request.querystring.type
+            - method.request.querystring.limit
+            - method.request.querystring.page_id
