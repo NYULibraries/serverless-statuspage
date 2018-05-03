@@ -15,7 +15,7 @@ package:
 
 functions:
   status:
-    memorySize: 1024
+    memorySize: 128
     handler: handler.status
     events:
       - http:
