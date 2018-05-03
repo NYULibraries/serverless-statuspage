@@ -1045,15 +1045,14 @@ lambda-leak@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/lambda-leak/-/lambda-leak-2.0.0.tgz#771985d3628487f6e885afae2b54510dcfb2cd7e"
 
-lambda-tester@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/lambda-tester/-/lambda-tester-3.4.0.tgz#7e84c1eba906b626fe44b1c8b303597a891e8d8c"
+lambda-tester@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/lambda-tester/-/lambda-tester-3.3.0.tgz#50370f7f36cd06bc4bae0eb824eefefad0b48117"
   dependencies:
     app-root-path "^2.0.1"
     dotenv "^5.0.0"
     dotenv-json "^1.0.0"
     lambda-leak "^2.0.0"
-    semver "^5.5.0"
     uuid "^3.0.1"
     vandium-utils "^1.1.1"
 
@@ -1500,7 +1499,7 @@ semver@~5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.0.3.tgz#77466de589cd5d3c95f138aa78bc569a3cb5d27a"
 
-serverless@^1.27.0:
+serverless@^1.26.1:
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.27.0.tgz#252140e14be16cc3fb767e1aab8adba575b5fbb1"
   dependencies:
@@ -1579,9 +1578,9 @@ stack-trace@0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/stack-trace/-/stack-trace-0.0.9.tgz#a8f6eaeca90674c333e7c43953f275b451510695"
 
-"status-jockey@https://github.com/NYULibraries/statusjockey":
+"status-jockey@https://github.com/NYULibraries/statusjockey.git":
   version "1.0.0"
-  resolved "https://github.com/NYULibraries/statusjockey#b1e7d4704cafe26052277baf8eff0f42ff719ec7"
+  resolved "https://github.com/NYULibraries/statusjockey.git#9495ce3a8a39f7777d296c68cf4acf35858a2518"
   dependencies:
     axios "^0.18.0"
 

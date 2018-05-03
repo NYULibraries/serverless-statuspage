@@ -9,15 +9,15 @@ provider:
     STATUSPAGE_API_KEY: ${ssm:STATUSPAGE_API_KEY}
 
 package:
- include:
-   - handler.js
-   - sj-config.js
+  include:
+    - handler.js
+    - sj-config.js
 
 functions:
   status:
     memorySize: 1024
     handler: handler.status
     events:
-     - http:
-         path: status
-         method: get
+      - http:
+          path: status
+          method: get

@@ -10,13 +10,15 @@ describe('all incidents', () => {
   const expectedResult = [
     {
       created_at: '2018-04-30T16:54:12.954Z',
+      id: 'yk38z6cwh8l1',
+      status: 'investigating',
+      title: 'Outage: All NYU-NET-Dependent Services',
+      incident_link: 'http://stspg.io/47dab52e5',
+      most_recent_message: 'Please be advised that all services on NYU\'s network (NYU-NET) are currently unavailable due to a network outage. NYU IT is investigating this issue and will post updates to the IT Service Status page (https://www.nyu.edu/life/information-technology/help-and-service-status/it-service-status.html) and the appropriate notification lists as they become available.\r\n\r\n#majoroutage',
+      status_color: 'red',
       hashtags: [
         'majoroutage'
-      ],
-      id: 'yk38z6cwh8l1',
-      incident_link: 'http://stspg.io/47dab52e5',
-      message: 'Please be advised that all services on NYU\'s network (NYU-NET) are currently unavailable due to a network outage. NYU IT is investigating this issue and will post updates to the IT Service Status page (https://www.nyu.edu/life/information-technology/help-and-service-status/it-service-status.html) and the appropriate notification lists as they become available.\r\n\r\n#majoroutage',
-      status: 'red'
+      ]
     }
   ];
 
@@ -44,7 +46,8 @@ describe('all incidents', () => {
       })
       .expectResult(result => {
         expect(allIncidentsRequest.isDone()).toBe(true);
-        expect(result).toEqual(expectedResult);
+        expect(result.statusCode).toEqual(200);
+        expect(JSON.parse(result.body)).toEqual(expectedResult);
       })
       .verify(done);
   });

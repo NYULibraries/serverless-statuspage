@@ -1,5 +1,4 @@
 module.exports = {
-  abcd1234: {
     // only return incidents with the following statuses. Otherwise, return all.
     filterByStatus: ["investigating", "completed"],
     // only return incidents from the following components. Otherwise, return all.
@@ -30,5 +29,4 @@ module.exports = {
         return body && body.match(/#\w+/g) ? body.match(/#\w+/g).map(v => v.replace('#', '')) : [];
       }
     }
-  }
 };
