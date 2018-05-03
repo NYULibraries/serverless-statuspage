@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "debug": "^3.1.0",
-    "status-jockey": "https://github.com/NYULibraries/statusjockey.git"
+    "status-jockey": "^1.0.0"
   }
 }

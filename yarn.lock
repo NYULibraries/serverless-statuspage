@@ -1578,9 +1578,9 @@ stack-trace@0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/stack-trace/-/stack-trace-0.0.9.tgz#a8f6eaeca90674c333e7c43953f275b451510695"
 
-"status-jockey@https://github.com/NYULibraries/statusjockey.git":
+status-jockey@^1.0.0:
   version "1.0.0"
-  resolved "https://github.com/NYULibraries/statusjockey.git#9495ce3a8a39f7777d296c68cf4acf35858a2518"
+  resolved "https://registry.yarnpkg.com/status-jockey/-/status-jockey-1.0.0.tgz#e277e64e5198ae63bd96d37db153178636ac2175"
   dependencies:
     axios "^0.18.0"
 
