@@ -7,6 +7,7 @@ provider:
   region: us-east-2
   environment:
     STATUSPAGE_API_KEY: ${ssm:STATUSPAGE_API_KEY}
+    STAGE: ${env:STAGE}
 
 # Enables api caching for dev and prod only
 custom:

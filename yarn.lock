@@ -146,8 +146,8 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
 aws-sdk@^2.228.0:
-  version "2.231.1"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.231.1.tgz#ff0a63f73c71b6b098389b926b857b13816bd5f9"
+  version "2.232.1"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.232.1.tgz#7bfe18df4c581e795d84f51ee2ec4a16e9d56783"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -1356,8 +1356,8 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
 
 qs@^6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
 querystring@0.2.0:
   version "0.2.0"
@@ -1500,8 +1500,8 @@ semver@~5.0.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.0.3.tgz#77466de589cd5d3c95f138aa78bc569a3cb5d27a"
 
 serverless@^1.26.1:
-  version "1.27.0"
-  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.27.0.tgz#252140e14be16cc3fb767e1aab8adba575b5fbb1"
+  version "1.27.1"
+  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.27.1.tgz#1db5835257cf19be4854dde0028e69ff74ddab7a"
   dependencies:
     "@serverless/fdk" "^0.5.1"
     apollo-client "^1.9.2"
@@ -1578,9 +1578,9 @@ stack-trace@0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/stack-trace/-/stack-trace-0.0.9.tgz#a8f6eaeca90674c333e7c43953f275b451510695"
 
-status-jockey@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/status-jockey/-/status-jockey-1.0.0.tgz#e277e64e5198ae63bd96d37db153178636ac2175"
+status-jockey@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/status-jockey/-/status-jockey-1.1.0.tgz#31dd4ecc6681bc52976c011e2639e89affacab44"
   dependencies:
     axios "^0.18.0"
 

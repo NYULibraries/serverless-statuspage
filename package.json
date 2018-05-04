@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "debug": "^3.1.0",
-    "status-jockey": "^1.0.0"
+    "status-jockey": "^1.1.0"
   }
 }
