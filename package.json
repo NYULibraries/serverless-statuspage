@@ -1,9 +1,11 @@
 {
   "scripts": {
     "test": "jasmine",
+    "test:debugger": "babel-node --inspect --debug-brk node_modules/.bin/jasmine",
     "deploy": "serverless deploy"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "jasmine": "^3.1.0",
     "jasmine-spec-reporter": "^4.2.1",
     "lambda-tester": "3.3.0",
