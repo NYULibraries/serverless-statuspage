@@ -6,7 +6,7 @@ module.exports = {
       title: "name",
       incident_link: "shortlink",
       // or based on a function which takes the incident item object
-      most_recent_message: ({ incident_updates }) => incident_updates[0].body,
+      message: ({ incident_updates }) => incident_updates[0].body,
       status_color: ({ status }) => {
         switch (status) {
           case "investigating":
@@ -23,8 +23,10 @@ module.exports = {
       },
       hashtags: ({ incident_updates }) => {
         const body = incident_updates[0].body;
-        return body && body.match(/#\w+/g) ? body.match(/#\w+/g).map(v => v.replace('#', '')) : [];
+        return body && body.match(/#\w+/g) ?
+          body.match(/#\w+/g).map(v => v.replace('#', ''))
+          : [];
       }
     },
-    keys: ["id", "most_recent_message", "incident_link", "title", "created_at", "status", "status_color", "hashtags"],
+    keys: ["id", "message", "incident_link", "title", "created_at", "status", "status_color", "hashtags"],
 };
