@@ -8,18 +8,12 @@ module.exports = {
       // or based on a function which takes the incident item object
       message: ({ incident_updates }) => incident_updates[0].body,
       status_color: ({ status }) => {
-        switch (status) {
-          case "investigating":
-            return "red";
-          case "identified":
-            return "orange";
-          case "monitoring":
-            return "green";
-          case "resolved":
-            return "green";
-          default:
-            return "green";
-        }
+        return {
+          investigating: "red",
+          identified: "orange",
+          monitoring: "green",
+          resolved: "green"
+        }[status] || "green";
       },
       hashtags: ({ incident_updates }) => {
         const body = incident_updates[0].body;

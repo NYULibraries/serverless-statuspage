@@ -1,21 +1,13 @@
 service: serverless-statuspage
 provider:
   name: aws
+  region: us-east-2
   runtime: nodejs6.10
   role: ${env:LAMBDA_ROLE}
   stage: ${env:STAGE}
-  region: us-east-2
   environment:
     STATUSPAGE_API_KEY: ${ssm:STATUSPAGE_API_KEY}
     STAGE: ${env:STAGE}
-
-# Enables api caching for dev and prod only
-custom:
-  stage: ${opt:stage, self:provider.stage}
-  enableCaching:
-    prod: true
-    dev: true
-    default: false
 
 package:
   include:
@@ -24,16 +16,26 @@ package:
 
 functions:
   status:
-    memorySize: 128
-    handler: handler.status
     events:
       - http:
           path: status
           method: get
+    handler: handler.status
+    memorySize: 128
 
-# enable caching based on stage name
-ApiGatewayStage:
-  CacheClusterEnabled: ${self:custom.enableCaching.${self:custom.stage}, self:custom.enableCaching.default}
+# DISABLED UNTIL REQUESTED PERMISSIONS GRANTED
+# # plugin allows for easy cache enabling
+# plugins:
+#   - serverless-api-stage
+#
+# # enable caching with serverless-api-stage plugin
+# custom:
+#   stageSettings:
+#     CacheClusterEnabled: true
+#     CacheClusterSize: '0.5'
+#     MethodSettings:
+#       CachingEnabled: true
+#       CacheTtlInSeconds: 300
 
 # Configures api caching for query strings
 resources:
