@@ -10,7 +10,7 @@ module.exports.status = (event, context, callback) =>
       statusCode: 200,
       body: JSON.stringify(data),
       headers: {
-        ["Access-Control-Allow-Origin"]: `https://${process.env.STAGE === 'dev' ? 'dev.' : ''}library.nyu.edu`,
+        ["Access-Control-Allow-Origin"]: `https://${process.env.STAGE === 'prod' ? 'library.nyu.edu' : '*'}`,
         ["Access-Control-Allow-Headers"]: "Content-Type"
       }
     }))
@@ -21,7 +21,7 @@ module.exports.status = (event, context, callback) =>
         statusCode: 200,
         body: JSON.stringify([]),
         headers: {
-          ["Access-Control-Allow-Origin"]: `https://${process.env.STAGE === 'dev' ? '*' : 'library.nyu.edu'}`,
+          ["Access-Control-Allow-Origin"]: `https://${process.env.STAGE === 'prod' ? 'library.nyu.edu' : '*'}`,
           ["Access-Control-Allow-Headers"]: "Content-Type"
         }
       });
