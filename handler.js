@@ -2,6 +2,10 @@
 
 const statusjockey = require('status-jockey');
 const config = require('./config/sj-config.js');
+const headers = {
+  ["Access-Control-Allow-Origin"]: `https://${process.env.STAGE === 'prod' ? 'library.nyu.edu' : '*'}`,
+  ["Access-Control-Allow-Headers"]: "Content-Type"
+};
 
 module.exports.status = (event, context, callback) =>
   Promise.resolve(event)
@@ -9,10 +13,7 @@ module.exports.status = (event, context, callback) =>
     .then(data => callback(null, {
       statusCode: 200,
       body: JSON.stringify(data),
-      headers: {
-        ["Access-Control-Allow-Origin"]: `https://${process.env.STAGE === 'prod' ? 'library.nyu.edu' : '*'}`,
-        ["Access-Control-Allow-Headers"]: "Content-Type"
-      }
+      headers
     }))
     .catch((err) => {
       console.error(err.message);
@@ -20,9 +21,6 @@ module.exports.status = (event, context, callback) =>
       callback(null, {
         statusCode: 200,
         body: JSON.stringify([]),
-        headers: {
-          ["Access-Control-Allow-Origin"]: `https://${process.env.STAGE === 'prod' ? 'library.nyu.edu' : '*'}`,
-          ["Access-Control-Allow-Headers"]: "Content-Type"
-        }
+        headers
       });
     });
