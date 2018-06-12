@@ -53,10 +53,13 @@ describe('all incidents', () => {
         .verify(done);
     });
 
-    it('should have required access-control headers on dev', (done) => {
-      process.env.STAGE = 'dev';
+    describe('on dev', () => {
+      beforeEach(() => {
+        process.env.STAGE = 'dev';
+      });
 
-      LambdaTester(status)
+      it('should have required access-control headers', (done) => {
+        LambdaTester(status)
         .event({
           queryStringParameters: {
             page_id: "kyyfz4489y7m",
@@ -68,33 +71,39 @@ describe('all incidents', () => {
           expect(allIncidentsRequest.isDone()).toBe(true);
           expect(result.statusCode).toEqual(200);
           expect(result.headers).toEqual({
-            ["Access-Control-Allow-Origin"]: "https://dev.library.nyu.edu",
+            ["Access-Control-Allow-Origin"]: "*",
             ["Access-Control-Allow-Headers"]: "Content-Type"
           });
         })
         .verify(done);
+      });
     });
 
-    it('should have required access-control headers on prod', (done) => {
-      process.env.STAGE = 'prod';
+    describe('on prod', () => {
+      beforeEach(() => {
+        process.env.STAGE = 'prod';
+      });
 
-      LambdaTester(status)
-      .event({
-        queryStringParameters: {
-          page_id: "kyyfz4489y7m",
-          type: 'all',
-          limit: 1
-        }
-      })
-      .expectResult(result => {
-        expect(allIncidentsRequest.isDone()).toBe(true);
-        expect(result.statusCode).toEqual(200);
-        expect(result.headers).toEqual({
-          ["Access-Control-Allow-Origin"]: "https://library.nyu.edu",
-          ["Access-Control-Allow-Headers"]: "Content-Type"
-        });
-      })
-      .verify(done);
+      it('should have required access-control headers', (done) => {
+
+        LambdaTester(status)
+        .event({
+          queryStringParameters: {
+            page_id: "kyyfz4489y7m",
+            type: 'all',
+            limit: 1
+          }
+        })
+        .expectResult(result => {
+          expect(allIncidentsRequest.isDone()).toBe(true);
+          expect(result.statusCode).toEqual(200);
+          expect(result.headers).toEqual({
+            ["Access-Control-Allow-Origin"]: "https://library.nyu.edu",
+            ["Access-Control-Allow-Headers"]: "Content-Type"
+          });
+        })
+        .verify(done);
+      });
     });
   });
 
