@@ -1,12 +1,12 @@
 service: serverless-statuspage
 provider:
   name: aws
-  region: us-east-2
+  region: us-east-1
   runtime: nodejs6.10
   role: ${env:LAMBDA_ROLE}
   stage: ${env:STAGE}
   environment:
-    STATUSPAGE_API_KEY: ${ssm:STATUSPAGE_API_KEY}
+    STATUSPAGE_API_KEY: ${env:STATUSPAGE_API_KEY}
     STAGE: ${env:STAGE}
 
 package:
@@ -23,29 +23,28 @@ functions:
     handler: handler.status
     memorySize: 128
 
-# DISABLED UNTIL REQUESTED PERMISSIONS GRANTED
-# # plugin allows for easy cache enabling
-# plugins:
-#   - serverless-api-stage
-#
-# # enable caching with serverless-api-stage plugin
-# custom:
-#   stageSettings:
-#     CacheClusterEnabled: true
-#     CacheClusterSize: '0.5'
-#     MethodSettings:
-#       CachingEnabled: true
-#       CacheTtlInSeconds: 300
+plugins:
+  - serverless-plugin-stage-variables
 
 # Configures api caching for query strings
 resources:
   Resources:
+    ApiGatewayStage:
+      Properties:
+        CacheClusterEnabled: true
+        CacheClusterSize: '0.5'
+        MethodSettings:
+          - CacheTtlInSeconds: 5
+            CachingEnabled: true
+            HttpMethod: "GET"
+            ResourcePath: '/*'
+            MetricsEnabled: false
     ApiGatewayMethodStatusGet:
       Properties:
         RequestParameters:
-          method.request.querystring.type: true,
-          method.request.querystring.limit: true,
-          method.request.querystring.page_id: true,
+          method.request.querystring.type: true
+          method.request.querystring.limit: true
+          method.request.querystring.page_id: true
         Integration:
           RequestParameters:
             integration.request.querystring.type: method.request.querystring.type
@@ -56,3 +55,6 @@ resources:
             - method.request.querystring.type
             - method.request.querystring.limit
             - method.request.querystring.page_id
+    ApiGatewayRestApi:
+      Properties:
+        Name: "${self:service}-${self:provider.stage}"
