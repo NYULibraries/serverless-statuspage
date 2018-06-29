@@ -1,11 +1,7 @@
-// to be used with unresolved queries
 module.exports = {
-    // map Statuspage.io response key values to custom key values. Non-mapped values in keys are given the default key.
     maps: {
-      // can map each entry to new key based on string identifying the mapped key
       title: "name",
       incident_link: "shortlink",
-      // or based on a function which takes the incident item object
       message: ({ incident_updates }) => incident_updates[0].body,
       hashtags: ({ incident_updates }) => {
         const body = incident_updates[0].body;
