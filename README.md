@@ -1,3 +1,7 @@
+# DEPRECATION NOTICE
+
+This application is no longer being maintained or used. Instead, we will be using the statuspage [public api](https://nyulibraries.statuspage.io/api)
+
 # serverless-statuspage
 
 A serverless Lambda API for NYU Libraries [statuspage.io](http://nyulibraries.statuspage.io/) updates
